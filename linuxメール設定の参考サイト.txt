@@ -1,0 +1,61 @@
+postfix
+・main.cf参考
+ https://web.arena.ne.jp/support/suiteprov2/manual/centos5/mailserver/postfix.html
+・broken_sasl_auth_clients等main.cf参考、コメント多めでわかりやすい(ただし情報古め(2007))
+ http://www.aconus.com/~oyaji/centos/smtp-centos.htm
+・エイリアス参考
+ https://serverlog.jp/postfix-smtp-auth/
+・SMTPSポート、submissionポート、TCP25の暗号化等SMTPの暗号化設定
+ https://qiita.com/jem_3/items/23199dfcb8c1f8b2a3be
+・サブドメインを隠す
+ https://www.itmedia.co.jp/help/tips/linux/l0657.html
+・smtp_sasl_mechanism_filter、smtp_sasl_tls_security_options、リレー周りをざっくり参考
+ https://qiita.com/jqtype/items/cfb03be0efb8eacd8978
+・.forwardを使った転送(POPで受信したものを外部メアドへ転送。世間一般のFwd)
+ https://qiita.com/pa_pa_paper/items/00ca3baa7921608847e2
+・sender_dependent_relayhost_maps参考(送信者アドレス次第で転送)
+ https://fsck.jp/?p=308
+・sender_transportファイル参考
+ https://www.uconst.org/blog/archives/51
+・relay_password参考(主にパーミッション)
+ http://park1.wakwak.com/~ima/centos_postfix_relay0001.html
+・smtp_sasl_security_optionsで沼ってたとこ
+ https://www.linuxquestions.org/questions/linux-server-73/postfix-no-mechanism-available-4175595296/
+
+主にdovecot
+・10-master.conf、10-auth.confあたり参考
+ https://blog.dshimizu.jp/article/215
+・postfix/main.cf一部、dovecotの認証方式(特にmode=0660)、Maildirのディレクトリ・スケルトン参考
+ http://www.goofoo.jp/2012/01/1698
+・auth-passwdfile.conf.extの参考、認証時のパスワードファイル(/etc/dovecot/passwd)参考
+ http://www.yam-web.net/centos7/mail/index.html
+  ・(サーバー証明書の作成。↑のURL内手順のほうが楽っぽい(未確認))
+   https://www.casleyconsulting.co.jp/blog/engineer/3014/
+
+Maildir関連
+・mailコマンドでMaildirを指定する方法
+ http://yu-write.blogspot.com/2013/11/centos-maildirmailbox-mail.html
+・共有ディレクトリ形式からMaildir形式へ変換
+ https://centossrv.com/migrate_to_maildir.shtml
+
+Thunderbird
+・Thunderbirdでつながらない時ログ取る手順
+ https://www.casleyconsulting.co.jp/blog/engineer/3014/
+
+fetchmail
+・.fetchmailrc参考
+ http://iyukki.blog56.fc2.com/blog-entry-100.html
+・設定項目の詳細説明参考
+ http://akira-arets.blogspot.com/2016/01/fetchmail-postfix-virtualmailbox.html
+ ・no rewrite参考
+ http://www.momonga-linux.org/~t/old/linux/980608.html
+
+その他
+・推奨&非推奨プロトコル
+ https://rat.cis.k.hosei.ac.jp/article/security/protocol.html
+・メールで使うポート番号の参考
+ https://www.alpha-prm.jp/help_k/mail_p_kanri_016.html
+・mailコマンドでメールを送る
+ https://qiita.com/zaburo/items/a6244d32ce5f5fe2c3d1
+・DNSのSOAレコードの詳細
+ https://www.atmarkit.co.jp/fnetwork/dnstips/014.html
